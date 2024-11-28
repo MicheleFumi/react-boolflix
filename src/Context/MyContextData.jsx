@@ -1,6 +1,6 @@
 // MyContextData.js
-import React, { createContext, useState, useContext } from 'react';
-
+import React, { createContext, useState, useContext, } from 'react';
+const apiKey = import.meta.env.VITE_API_KEY;
 // Crea il contesto
 export const MovieContext = createContext();
 
@@ -20,7 +20,10 @@ export const MovieProvider = ({ children }) => {
 
     // 4. Funzione per effettuare la ricerca dei film
     const fetchMovies = (query) => {
-        const apiKey = '57087ec3c9f252f373c26c5bafb6a920';  // Aggiungi qui la tua API Key
+
+        console.log("API Key:", apiKey);
+
+        /*  const apiKey = process.env.REACT_APP_API_KEY;   */// Aggiungi qui la tua API Key
         const url = `https://api.themoviedb.org/3/search/movie?&api_key=${apiKey}&query=${query}`;
 
         fetch(url)

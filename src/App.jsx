@@ -43,7 +43,7 @@ export default function App() {
                 <h3>Titolo: {movie.title}</h3>
                 <p>Titolo Originale: {movie.original_title}</p>
                 <p>Lingua: {movie.original_language}</p>
-                <p>Voto: {movie.vote_average.}</p>
+                <p>Voto: {movie.vote_average}</p>
               </li>
             ))}
           </ul>
