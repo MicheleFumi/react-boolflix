@@ -34,6 +34,7 @@ export const MovieProvider = ({ children }) => {
                 console.error(err);
             });
     };
+
     const fetchSeries = (query) => {
 
         const url = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=${query}`;

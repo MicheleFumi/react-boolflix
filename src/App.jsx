@@ -1,7 +1,8 @@
-import React from 'react';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useMovieContext } from './Context/MyContextData'; // Importa il contesto
 import './app.css';
 import Flag from 'react-country-flag';
+
 
 export default function App() {
   const { movies, searchQuery, setSearchQuery, fetchMovies, series, fetchSeries, } = useMovieContext();
@@ -15,6 +16,19 @@ export default function App() {
     fetchMovies(searchQuery);
     fetchSeries(searchQuery)
   };
+
+  const ratingStars = (rating) => {
+    let stars = []
+    for (let i = 0; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<i key={i} className='bi bi-star-fill'></i>)
+      } else {
+        stars.push(<i key={i} className='bi bi-star'></i>)
+      }
+
+    }
+    return stars;
+  }
 
   return (
     <div>
@@ -39,6 +53,7 @@ export default function App() {
         {movies.length > 0 ? (
           <ul>
             {movies.map((movie) => {
+              const rating = Math.ceil(movie.vote_average / 2)
               let countryCode = movie.original_language.toUpperCase();
 
               // Gestione delle eccezioni per lingue specifiche
@@ -56,12 +71,14 @@ export default function App() {
 
 
                 <li key={movie.id}>
-                  <img src={`https://image.tmdb.org/t/p/w300/${movie.backdrop_path}`} alt="" />
+                  <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="" />
 
                   <h3>Titolo: {movie.title}</h3>
                   <p>Titolo Originale: {movie.original_title}</p>
                   <Flag countryCode={countryCode} style={{ width: 50, height: 50 }} />
-                  <p>Voto: {movie.vote_average}</p>
+                  <p>
+                    Voto: {ratingStars(rating)}
+                  </p>
                 </li>
               );
             })}
@@ -92,7 +109,7 @@ export default function App() {
 
               return (
                 <li key={serie.id}>
-                  <img src={`https://image.tmdb.org/t/p/w300/${serie.backdrop_path}`} alt="" />
+                  <img src={`https://image.tmdb.org/t/p/w300/${serie.poster_path}`} alt="" />
                   <h3>Titolo: {serie.original_name}</h3>
                   <Flag countryCode={countryCode} style={{ width: 50, height: 50 }} />
                   <p>Voto: {serie.vote_average}</p>
