@@ -5,11 +5,15 @@ export default function App() {
   const { movies, searchQuery, setSearchQuery, fetchMovies, error } = useMovieContext();
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);  // Aggiorna la query
+    console.log(event.target.value);
+
   };
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();  // Evita il comportamento di default del form
     fetchMovies(searchQuery);  // Fa la ricerca usando la query
+    console.log(fetchMovies);
+
   };
 
 
@@ -36,10 +40,10 @@ export default function App() {
           <ul>
             {movies.map((movie) => (
               <li key={movie.id}>
-                <h3>{movie.title}</h3>
-                <p>{movie.original_title}</p>
-                <p>{movie.original_language}</p>
-                <p>Voto: {movie.vote_average}</p>
+                <h3>Titolo: {movie.title}</h3>
+                <p>Titolo Originale: {movie.original_title}</p>
+                <p>Lingua: {movie.original_language}</p>
+                <p>Voto: {movie.vote_average.}</p>
               </li>
             ))}
           </ul>
