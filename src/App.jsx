@@ -56,6 +56,8 @@ export default function App() {
 
 
                 <li key={movie.id}>
+                  <img src={`https://image.tmdb.org/t/p/w300/${movie.backdrop_path}`} alt="" />
+
                   <h3>Titolo: {movie.title}</h3>
                   <p>Titolo Originale: {movie.original_title}</p>
                   <Flag countryCode={countryCode} style={{ width: 50, height: 50 }} />
@@ -90,6 +92,7 @@ export default function App() {
 
               return (
                 <li key={serie.id}>
+                  <img src={`https://image.tmdb.org/t/p/w300/${serie.backdrop_path}`} alt="" />
                   <h3>Titolo: {serie.original_name}</h3>
                   <Flag countryCode={countryCode} style={{ width: 50, height: 50 }} />
                   <p>Voto: {serie.vote_average}</p>
