@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useMovieContext } from './Context/MyContextData';  // Importa il contesto
 import './app.css'
+import Flag from 'react-country-flag';
+
+
 export default function App() {
   const { movies, searchQuery, setSearchQuery, fetchMovies, error } = useMovieContext();
   const handleInputChange = (event) => {
@@ -39,19 +42,21 @@ export default function App() {
         {movies.length > 0 ? (
           <ul>
             {movies.map((movie) => (
-              <li key={movie.id}>
+              <li key={movie.id} >
                 <h3>Titolo: {movie.title}</h3>
                 <p>Titolo Originale: {movie.original_title}</p>
-                <p>Lingua: {movie.original_language}</p>
+                <Flag countryCode={movie.original_language} style={{ width: 30, height: 30 }}></Flag>
                 <p>Voto: {movie.vote_average}</p>
               </li>
+
+
             ))}
           </ul>
         ) : (
           <p>Nessun film trovato.</p>
         )}
       </div>
-    </div>
+    </div >
   );
 };
 

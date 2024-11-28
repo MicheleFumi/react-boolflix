@@ -20,9 +20,6 @@ export const MovieProvider = ({ children }) => {
 
     // 4. Funzione per effettuare la ricerca dei film
     const fetchMovies = (query) => {
-
-        console.log("API Key:", apiKey);
-
         /*  const apiKey = process.env.REACT_APP_API_KEY;   */// Aggiungi qui la tua API Key
         const url = `https://api.themoviedb.org/3/search/movie?&api_key=${apiKey}&query=${query}`;
 
