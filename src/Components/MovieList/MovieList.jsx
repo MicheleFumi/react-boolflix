@@ -43,7 +43,9 @@ export default function () {
                                 />
                                 <div className="movie-overlay position-absolute w-100 h-100 top-0 start-0 text-white d-flex flex-column justify-content-end p-3">
                                     <h5 className="card-title">{movie.title}</h5>
-                                    <p className="card-text">Titolo Originale: {movie.original_title}</p>
+                                    {movie.title !== movie.original_title && (
+                                        <p className="card-text">Titolo Originale: {movie.original_title}</p>
+                                    )}
                                     <p>{movieCountryCode(movie)}</p>
                                     <p>Voto: {ratingStars(movie)}</p>
                                 </div>

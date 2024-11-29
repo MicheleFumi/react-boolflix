@@ -6,7 +6,7 @@ import logo from '../../assets/logo.png';
 export default function AppHeader() {
     return (
 
-        <header className="app-header bg-dark text-white">
+        <header className="app-header bg-black text-white">
             <div className="container">
                 <div className="row align-items-center">
 
