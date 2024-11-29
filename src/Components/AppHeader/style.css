@@ -1,0 +1,11 @@
+.app-header {
+
+    position: sticky;
+
+    top: 0;
+    z-index: 10;
+}
+
+.logo-img {
+    width: 10rem;
+}
