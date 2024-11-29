@@ -5,6 +5,7 @@ import './app.css';
 import { MovieProvider } from './Context/MyContextData.jsx'
 import AppHeader from './Components/AppHeader/AppHeader';
 import AppMain from './Components/AppMain/AppMain';
+import AppFooter from './Components/AppFooter/AppFooter.jsx';
 
 export default function App() {
 
@@ -15,6 +16,8 @@ export default function App() {
         <AppHeader />
 
         <AppMain />
+
+        <AppFooter />
 
       </MovieProvider>
 

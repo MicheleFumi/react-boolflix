@@ -11,7 +11,7 @@ export default function () {
 
 
         return (
-            <Flag countryCode={countryCode} style={{ width: 30, height: 30 }} />
+            <Flag countryCode={countryCode} className='flag' />
         )
 
     }

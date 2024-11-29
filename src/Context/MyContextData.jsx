@@ -44,6 +44,8 @@ export function MovieProvider({ children }) {
 
     };
 
+
+
     return (
         <MovieContext.Provider value={{ movies, searchQuery, setSearchQuery, fetchMovies, series, fetchSeries, }}>
             {children}

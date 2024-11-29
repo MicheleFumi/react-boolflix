@@ -1,13 +1,15 @@
 main {
     background-color: #292828;
     color: white;
-    height: 100%
+    min-height: 100vh;
+
 }
 
 h2 {
     border-bottom: 1px solid white;
 }
 
+/* card layout */
 .movie-image-wrapper {
     position: relative;
     overflow: hidden;
@@ -67,4 +69,8 @@ h2 {
 .card-text {
     font-size: 0.9rem;
 
+}
+
+.flag {
+    font-size: 2rem !important;
 }

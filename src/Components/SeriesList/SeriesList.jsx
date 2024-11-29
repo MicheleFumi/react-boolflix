@@ -10,7 +10,7 @@ export default function Serieslist() {
         else if (countryCode === 'KO') countryCode = 'KR';
 
         return (
-            <Flag countryCode={countryCode} style={{ width: 30, height: 30 }} />
+            <Flag countryCode={countryCode} className='flag' />
         )
 
     }
