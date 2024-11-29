@@ -3,6 +3,9 @@ main {
     color: white;
 }
 
+h2 {
+    border-bottom: 1px solid white;
+}
 
 .movie-image-wrapper {
     position: relative;
@@ -12,8 +15,10 @@ main {
 
 .movie-image {
     width: 100%;
-    height: auto;
+    height: 27rem;
     transition: transform 0.3s ease;
+    border-radius: 0;
+
 }
 
 .movie-image-wrapper:hover .movie-image {
@@ -23,11 +28,10 @@ main {
 
 .movie-overlay {
     background: rgba(0, 0, 0, 0.7);
-
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     color: white;
-    padding: 10px;
+
 }
 
 .movie-image-wrapper:hover .movie-overlay {
@@ -37,12 +41,13 @@ main {
 
 .card-title,
 .card-text {
-    font-size: 1rem;
+    font-size: 2rem;
 
 }
 
 .card-body {
     padding: 0;
+
 }
 
 
