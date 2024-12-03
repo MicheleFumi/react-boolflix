@@ -1,32 +1,9 @@
-import Flag from 'react-country-flag';
+
 import { useMovieContext } from '../../Context/MyContextData';
-export default function Serieslist() {
+export default function Serieslist({ countryCode, ratingStars }) {
     const { series } = useMovieContext();
-    function serieCountryCode(serie) {
-        let countryCode = serie.original_language.toUpperCase();
-        if (countryCode === 'EN') countryCode = 'US';
-        else if (countryCode === 'ZH') countryCode = 'CN';
-        else if (countryCode === 'JA') countryCode = 'JP';
-        else if (countryCode === 'KO') countryCode = 'KR';
 
-        return (
-            <Flag countryCode={countryCode} className='flag' />
-        )
 
-    }
-
-    const ratingStars = (serie) => {
-        const rating = Math.ceil(serie.vote_average / 2);
-        let stars = [];
-        for (let i = 1; i <= 6; i++) {
-            if (i <= rating) {
-                stars.push(<i key={i} className="bi bi-star-fill"></i>);
-            } else {
-                stars.push(<i key={i} className="bi bi-star"></i>);
-            }
-        }
-        return stars;
-    };
     return (
         <>
             {series.map(serie => (
@@ -41,8 +18,8 @@ export default function Serieslist() {
                                 />
                                 <div className="movie-overlay position-absolute w-100 h-100 top-0 start-0 text-white d-flex flex-column justify-content-end p-3">
                                     <h5 className="card-title">{serie.original_name}</h5>
-                                    <p>{serieCountryCode(serie)}</p>
-                                    <p>Voto: {ratingStars(serie)}</p>
+                                    <p>{countryCode(serie.original_language)}</p>
+                                    <p>Voto: {ratingStars(serie.vote_average)}</p>
                                 </div>
                             </div>
                         </div>

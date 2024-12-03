@@ -1,7 +1,7 @@
 import React from "react";
 import InputForm from "../InputForm/InputForm";
 import "./style.css";
-import logo from '../../assets/logo.png';
+import Logo from '../../assets/logo.png';
 
 export default function AppHeader() {
     return (
@@ -13,7 +13,7 @@ export default function AppHeader() {
                     <div className="col-6 col-md-4">
                         <a href="/">
                             <img
-                                src={logo}
+                                src={Logo}
                                 alt="Logo"
                                 className="logo-img"
                             />

@@ -1,33 +1,7 @@
-import Flag from 'react-country-flag';
+
 import { useMovieContext } from '../../Context/MyContextData';
-export default function () {
+export default function ({ countryCode, ratingStars }) {
     const { movies } = useMovieContext();
-    function movieCountryCode(movie) {
-        let countryCode = movie.original_language.toUpperCase();
-        if (countryCode === 'EN') countryCode = 'US';
-        else if (countryCode === 'ZH') countryCode = 'CN';
-        else if (countryCode === 'JA') countryCode = 'JP';
-        else if (countryCode === 'KO') countryCode = 'KR';
-
-
-        return (
-            <Flag countryCode={countryCode} className='flag' />
-        )
-
-    }
-
-    const ratingStars = (movie) => {
-        const rating = Math.ceil(movie.vote_average / 2);
-        let stars = [];
-        for (let i = 1; i <= 6; i++) {
-            if (i <= rating) {
-                stars.push(<i key={i} className="bi bi-star-fill"></i>);
-            } else {
-                stars.push(<i key={i} className="bi bi-star"></i>);
-            }
-        }
-        return stars;
-    };
 
     return (
         <>
@@ -46,8 +20,8 @@ export default function () {
                                     {movie.title !== movie.original_title && (
                                         <p className="card-text">Titolo Originale: {movie.original_title}</p>
                                     )}
-                                    <p>{movieCountryCode(movie)}</p>
-                                    <p>Voto: {ratingStars(movie)}</p>
+                                    <p>{countryCode(movie.original_language)}</p>
+                                    <p>Voto: {ratingStars(movie.vote_average)}</p>
                                 </div>
                             </div>
                         </div>
