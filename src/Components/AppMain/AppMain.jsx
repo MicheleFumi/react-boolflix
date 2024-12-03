@@ -3,6 +3,7 @@ import SeriesList from '../SeriesList/SeriesList';
 import Flag from 'react-country-flag';
 import './style.css'
 export default function AppMain() {
+
     function countryCode(language) {
         let countryCode = language.toUpperCase();
         if (countryCode === 'EN') countryCode = 'US';
